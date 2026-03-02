@@ -39,7 +39,7 @@ uv pip install -e .
 
 ## 💥 Quick Start
 
-QUICK_START.md provides some simple code snippets to get you started with AutoGaze!
+[QUICK_START.md](https://github.com/NVlabs/AutoGaze/blob/main/QUICK_START.md) provides some simple code snippets to get you started with AutoGaze!
 
 
 
@@ -58,11 +58,11 @@ The collection of all open-sourced models, data, benchmark can be found in [Auto
 
 ## 🤖 Training AutoGaze
 
-See TRAIN.md for how to train AutoGaze.
+See [TRAIN.md](https://github.com/NVlabs/AutoGaze/blob/main/TRAIN.md) for how to train AutoGaze.
 
 ## 🧩 Integrating AutoGaze into ViTs and MLLMs
 
-See INTEGRATION.md for guidelines.
+See [INTEGRATION.md](https://github.com/NVlabs/AutoGaze/blob/main/INTEGRATION.md) for guidelines.
 
 ## 🌲 Code Structure
 
