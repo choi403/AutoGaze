@@ -113,7 +113,16 @@ This modularized structure allows easily adding new models, tasks, and algorithm
 ## ✏️ Citation
 
 If you find this work useful, please consider citing:
-
-
+```
+@misc{shi2026attendattentionefficientscalable,
+      title={Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing}, 
+      author={Baifeng Shi and Stephanie Fu and Long Lian and Hanrong Ye and David Eigen and Aaron Reite and Boyi Li and Jan Kautz and Song Han and David M. Chan and Pavlo Molchanov and Trevor Darrell and Hongxu Yin},
+      year={2026},
+      eprint={2603.12254},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2603.12254}, 
+}
+```
 
 
