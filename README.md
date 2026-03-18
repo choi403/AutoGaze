@@ -18,6 +18,8 @@ See the video below for a quick peek of what AutoGaze is capable of! Meanwhile y
 
 https://github.com/user-attachments/assets/ffc4cc72-e519-4ebe-aaa0-8d3ac3094160
 
+## 🎉 Announcement
+
 ## 📦 Installation
 
 ```bash
