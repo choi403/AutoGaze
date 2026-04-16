@@ -1,0 +1,546 @@
+[
+  {
+    "clip_name": "clip_00_start_0000",
+    "setting": "ratio_0.10",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_00_start_0000",
+    "setting": "ratio_0.25",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_00_start_0000",
+    "setting": "ratio_0.50",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_00_start_0000",
+    "setting": "ratio_0.75",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_00_start_0000",
+    "setting": "ratio_0.75_task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_00_start_0000",
+    "setting": "task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_00_start_0000",
+    "setting": "ratio_1.00",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_01_start_0016",
+    "setting": "ratio_0.10",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_01_start_0016",
+    "setting": "ratio_0.25",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_01_start_0016",
+    "setting": "ratio_0.50",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_01_start_0016",
+    "setting": "ratio_0.75",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_01_start_0016",
+    "setting": "ratio_0.75_task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_01_start_0016",
+    "setting": "task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_01_start_0016",
+    "setting": "ratio_1.00",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_02_start_0032",
+    "setting": "ratio_0.10",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_02_start_0032",
+    "setting": "ratio_0.25",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_02_start_0032",
+    "setting": "ratio_0.50",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_02_start_0032",
+    "setting": "ratio_0.75",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_02_start_0032",
+    "setting": "ratio_0.75_task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_02_start_0032",
+    "setting": "task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_02_start_0032",
+    "setting": "ratio_1.00",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_03_start_0048",
+    "setting": "ratio_0.10",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_03_start_0048",
+    "setting": "ratio_0.25",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_03_start_0048",
+    "setting": "ratio_0.50",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_03_start_0048",
+    "setting": "ratio_0.75",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  },
+  {
+    "clip_name": "clip_03_start_0048",
+    "setting": "ratio_0.75_task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_03_start_0048",
+    "setting": "task_0.70",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": [
+        [
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071,
+          0.699999988079071
+        ]
+      ]
+    }
+  },
+  {
+    "clip_name": "clip_03_start_0048",
+    "setting": "ratio_1.00",
+    "gaze_outputs": {
+      "scales": [
+        32,
+        64,
+        112,
+        224
+      ],
+      "num_vision_tokens_each_frame": 265,
+      "task_loss_requirement": null
+    }
+  }
+]

@@ -18,7 +18,7 @@ dependencies = [
     "loguru",
     "timm>=1.0.15",
     "tqdm",
-    "transformers~=4.51",
+    "transformers>=4.51,<4.52",
     "pillow",
     "numpy",
     "omegaconf",
@@ -36,6 +36,9 @@ dev = [
     "pytest>=8.0.0",
     "pytest-cov>=4.1.0",
     "pytest-mock>=3.12.0",
+    "pandas",
+    "scikit-image",
+    "seaborn",
 ]
 
 [tool.setuptools.packages.find]

@@ -8,6 +8,7 @@ sbatch.sh
 *_ignored*
 wandb/
 hf_cache/
+analysis_outputs/
 videos/
 tools/
 
