@@ -27,6 +27,15 @@ from autogaze.tasks.video_mae_reconstruction import VideoMAEReconstruction
 from autogaze.utils import UnNormalize
 
 
+PINNED_MODEL_REVISIONS = {
+    "nvidia/AutoGaze": "5100fae739ec1bf3f875914fa1b703846a18943a",
+    "bfshi/VideoMAE_AutoGaze": "34001937344859e687d336cd44ec8962018ae46b",
+    "facebook/vit-mae-large": "142cb8c25e1b1bc1769997a919aa1b5a2345a6b8",
+    "facebook/dinov2-with-registers-base": "a1d738ccfa7ae170945f210395d99dde8adb1805",
+    "google/siglip2-base-patch16-224": "75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2",
+}
+
+
 DEFAULT_SETTINGS = [
     {"name": "ratio_0.10", "gazing_ratio": 0.10, "task_loss_requirement": None},
     {"name": "ratio_0.25", "gazing_ratio": 0.25, "task_loss_requirement": None},
@@ -64,6 +73,24 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default="nvidia/AutoGaze",
         help="Hugging Face repo for the AutoGaze model.",
+    )
+    parser.add_argument(
+        "--autogaze-revision",
+        type=str,
+        default=PINNED_MODEL_REVISIONS["nvidia/AutoGaze"],
+        help="Pinned Hugging Face revision for the AutoGaze model.",
+    )
+    parser.add_argument(
+        "--task-asset-repo",
+        type=str,
+        default="bfshi/VideoMAE_AutoGaze",
+        help="Hugging Face repo for the released VideoMAE_AutoGaze task assets.",
+    )
+    parser.add_argument(
+        "--task-asset-revision",
+        type=str,
+        default=PINNED_MODEL_REVISIONS["bfshi/VideoMAE_AutoGaze"],
+        help="Pinned Hugging Face revision for the VideoMAE_AutoGaze task assets.",
     )
     parser.add_argument(
         "--clip-len",
@@ -140,24 +167,45 @@ def load_clip(video_path: Path, start: int, clip_len: int) -> np.ndarray:
     return process_video_frames(raw_video, clip_len)
 
 
-def download_task_assets(local_dir: Path) -> tuple[Path, Path]:
+def download_task_assets(task_asset_repo: str, task_asset_revision: str, local_dir: Path) -> tuple[Path, Path]:
     local_dir.mkdir(parents=True, exist_ok=True)
-    config_path = hf_hub_download("bfshi/VideoMAE_AutoGaze", "config.yaml", local_dir=str(local_dir))
-    weights_path = hf_hub_download("bfshi/VideoMAE_AutoGaze", "videomae.pt", local_dir=str(local_dir))
+    config_path = hf_hub_download(
+        task_asset_repo,
+        "config.yaml",
+        revision=task_asset_revision,
+        local_dir=str(local_dir),
+    )
+    weights_path = hf_hub_download(
+        task_asset_repo,
+        "videomae.pt",
+        revision=task_asset_revision,
+        local_dir=str(local_dir),
+    )
     return Path(config_path), Path(weights_path)
 
 
-def load_task(task_asset_dir: Path, device: str, attn_mode: str) -> VideoMAEReconstruction:
-    config_path, weights_path = download_task_assets(task_asset_dir)
+def load_task(args: argparse.Namespace) -> VideoMAEReconstruction:
+    config_path, weights_path = download_task_assets(
+        args.task_asset_repo,
+        args.task_asset_revision,
+        args.task_asset_dir,
+    )
     cfg = OmegaConf.load(config_path)
     task_cfg = cfg.task
+    task_cfg.recon_model_config.revision = PINNED_MODEL_REVISIONS[task_cfg.recon_model]
+    task_cfg.recon_model_config.dinov2_reg_loss_config.revision = PINNED_MODEL_REVISIONS[
+        task_cfg.recon_model_config.dinov2_reg_loss_config.model
+    ]
+    task_cfg.recon_model_config.siglip2_loss_config.revision = PINNED_MODEL_REVISIONS[
+        task_cfg.recon_model_config.siglip2_loss_config.model
+    ]
     task = VideoMAEReconstruction(
         recon_model=task_cfg.recon_model,
         recon_model_config=task_cfg.recon_model_config,
         scales=task_cfg.scales,
         recon_sample_rate=1,
-        attn_mode=attn_mode,
-    ).to(device).eval()
+        attn_mode=args.attn_mode,
+    ).to(args.device).eval()
     state = torch.load(weights_path, map_location="cpu")
     state = OrderedDict((key.removeprefix("module."), value) for key, value in state.items())
     missing_keys, unexpected_keys = task.load_state_dict(state, strict=False)
@@ -174,9 +222,9 @@ def load_models(args: argparse.Namespace) -> tuple[AutoGazeImageProcessor, AutoG
     torch.backends.cuda.matmul.allow_tf32 = True
     torch.backends.cudnn.allow_tf32 = True
     torch.set_float32_matmul_precision("high")
-    processor = AutoGazeImageProcessor.from_pretrained(args.autogaze_model)
-    gaze_model = AutoGaze.from_pretrained(args.autogaze_model).to(args.device).eval()
-    task = load_task(args.task_asset_dir, args.device, args.attn_mode)
+    processor = AutoGazeImageProcessor.from_pretrained(args.autogaze_model, revision=args.autogaze_revision)
+    gaze_model = AutoGaze.from_pretrained(args.autogaze_model, revision=args.autogaze_revision).to(args.device).eval()
+    task = load_task(args)
     return processor, gaze_model, task
 
 

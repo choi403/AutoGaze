@@ -27,21 +27,54 @@ class VideoMAEReconstruction(nn.Module):
 
         # Create model
         self.scales = sorted([int(scale) for scale in str(scales).split("+")])
-        self.transform = VivitImageProcessor.from_pretrained(recon_model, size=self.scales[-1])  # use mae image preprocessor config to intialize video preprocessor
-        self.mae = ViTMAEForPreTraining.from_pretrained(recon_model, attn_implementation="sdpa", scales=str(scales), **OmegaConf.to_container(recon_model_config))
+        recon_model_config_dict = OmegaConf.to_container(recon_model_config, resolve=True)
+        recon_model_revision = recon_model_config_dict.pop("revision", None)
+        self.transform = VivitImageProcessor.from_pretrained(
+            recon_model,
+            revision=recon_model_revision,
+            size=self.scales[-1],
+        )  # use mae image preprocessor config to intialize video preprocessor
+        self.mae = ViTMAEForPreTraining.from_pretrained(
+            recon_model,
+            revision=recon_model_revision,
+            attn_implementation="sdpa",
+            scales=str(scales),
+            **recon_model_config_dict,
+        )
         self.mae.transform = self.transform
+
+        dinov2_reg_loss_config = recon_model_config_dict.get("dinov2_reg_loss_config") or {}
+        siglip2_loss_config = recon_model_config_dict.get("siglip2_loss_config") or {}
         if "dinov2_reg" in self.mae.loss_type:
-            self.mae.dinov2_reg = AutoModel.from_pretrained(recon_model_config.dinov2_reg_loss_config.model, attn_implementation=attn_mode)
-            self.mae.dinov2_reg_transform = AutoImageProcessor.from_pretrained(recon_model_config.dinov2_reg_loss_config.model)
+            self.mae.dinov2_reg = AutoModel.from_pretrained(
+                dinov2_reg_loss_config["model"],
+                revision=dinov2_reg_loss_config.get("revision"),
+                attn_implementation=attn_mode,
+            )
+            self.mae.dinov2_reg_transform = AutoImageProcessor.from_pretrained(
+                dinov2_reg_loss_config["model"],
+                revision=dinov2_reg_loss_config.get("revision"),
+            )
             for param in self.mae.dinov2_reg.parameters():
                 param.requires_grad = False
             self.mae.dinov2_reg.eval()
         if "siglip2" in self.mae.loss_type:
-            if "naflex" in recon_model_config.siglip2_loss_config.model:
-                self.mae.siglip2 = Siglip2VisionModel.from_pretrained(recon_model_config.siglip2_loss_config.model, attn_implementation=attn_mode)
+            if "naflex" in siglip2_loss_config["model"]:
+                self.mae.siglip2 = Siglip2VisionModel.from_pretrained(
+                    siglip2_loss_config["model"],
+                    revision=siglip2_loss_config.get("revision"),
+                    attn_implementation=attn_mode,
+                )
             else:
-                self.mae.siglip2 = SiglipVisionModel.from_pretrained(recon_model_config.siglip2_loss_config.model, attn_implementation=attn_mode)
-            self.mae.siglip2_transform = AutoImageProcessor.from_pretrained(recon_model_config.siglip2_loss_config.model)
+                self.mae.siglip2 = SiglipVisionModel.from_pretrained(
+                    siglip2_loss_config["model"],
+                    revision=siglip2_loss_config.get("revision"),
+                    attn_implementation=attn_mode,
+                )
+            self.mae.siglip2_transform = AutoImageProcessor.from_pretrained(
+                siglip2_loss_config["model"],
+                revision=siglip2_loss_config.get("revision"),
+            )
             for param in self.mae.siglip2.parameters():
                 param.requires_grad = False
             self.mae.siglip2.eval()
